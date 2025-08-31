@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "On‑Demand SEO Crawler",
+  "version": "0.1.0",
+  "description": "Analyze the current website on demand: crawl a limited set of pages, extract keywords, and provide SEO recommendations.",
+  "action": {
+    "default_title": "SEO Analyzer",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["report.html", "report.js", "report.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
+
+

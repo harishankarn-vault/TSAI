@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SEO Analyzer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>SEO Analyzer</h1>
+      <label class="row">
+        <span>Crawl method</span>
+        <select id="crawlMethod">
+          <option value="sitemap" selected>Sitemap</option>
+          <option value="links">Internal links</option>
+        </select>
+      </label>
+      <label class="row">
+        <span>Custom sitemap URL (optional)</span>
+        <input id="sitemapUrl" type="text" placeholder="https://example.com/sitemap.xml" />
+      </label>
+      <label class="row">
+        <span>Max pages to crawl</span>
+        <input id="maxPages" type="number" min="1" max="100" value="15" />
+      </label>
+      <label class="row">
+        <span>Timeout per page (ms)</span>
+        <input id="timeoutMs" type="number" min="1000" max="30000" value="8000" />
+      </label>
+      <label class="row">
+        <span>Exclude newsletter-like pages</span>
+        <input id="excludeNewsletters" type="checkbox" checked />
+      </label>
+      <button id="analyzeBtn">Analyze Current Site</button>
+      <button id="exportBtn">Export PDF</button>
+      <div id="status"></div>
+      <div id="results"></div>
+    </div>
+    <script type="module" src="popup.js"></script>
+  </body>
+  </html>
+
+

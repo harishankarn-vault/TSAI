@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Animal Picker & File Uploader</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Animal Picker & File Uploader</h1>
+      <div class="grid">
+        <section class="box" aria-labelledby="animal-box-title">
+          <h2 id="animal-box-title">Choose an animal</h2>
+          <div class="checkboxes">
+            <label><input type="checkbox" name="animal" value="cat" /> Cat</label>
+            <label><input type="checkbox" name="animal" value="dog" /> Dog</label>
+            <label><input type="checkbox" name="animal" value="elephant" /> Elephant</label>
+          </div>
+          <div class="preview" id="animal-preview" aria-live="polite"></div>
+        </section>
+
+        <section class="box" aria-labelledby="upload-box-title">
+          <h2 id="upload-box-title">Upload a file</h2>
+          <form id="upload-form">
+            <input id="file-input" type="file" name="file" />
+            <button type="submit">Upload</button>
+          </form>
+          <pre id="upload-result" class="result" aria-live="polite"></pre>
+        </section>
+      </div>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
+
