@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Animal Picker & File Uploader</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>
+        Animal Picker & File Uploader
+        <button class="theme-toggle" id="theme-toggle">🌙 Dark Mode</button>
+      </h1>
+      <div class="grid">
+        <section class="box" aria-labelledby="animal-box-title">
+          <h2 id="animal-box-title">Choose an animal</h2>
+          <div class="checkboxes">
+            <label><input type="checkbox" name="animal" value="cat" /> Cat</label>
+            <label><input type="checkbox" name="animal" value="dog" /> Dog</label>
+            <label><input type="checkbox" name="animal" value="elephant" /> Elephant</label>
+          </div>
+          <div class="preview" id="animal-preview" aria-live="polite"></div>
+        </section>
+
+        <section class="box" aria-labelledby="upload-box-title">
+          <h2 id="upload-box-title">Upload a file</h2>
+          <form id="upload-form">
+            <input id="file-input" type="file" name="file" />
+            <button type="submit">Upload</button>
+          </form>
+          <pre id="upload-result" class="result" aria-live="polite"></pre>
+          <div id="gemini-analysis" class="gemini-analysis" style="display: none;"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Chat Interface -->
+    <div class="chat-container">
+      <div class="chat-header" id="chat-header">
+        <span>💬 Chat with Gemini AI</span>
+        <div class="chat-header-controls">
+          <button id="clear-context-btn" class="clear-context-btn" title="Clear conversation context">🗑️</button>
+          <span id="chat-toggle">▼</span>
+        </div>
+      </div>
+      <div class="chat-content" id="chat-content">
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-message bot">
+            Hello! I'm Gemini AI. I can help you analyze files and answer questions. Upload a file or ask me anything!
+          </div>
+        </div>
+        <div class="chat-input-container">
+          <input type="text" class="chat-input" id="chat-input" placeholder="Type your message here...">
+          <button class="chat-send" id="chat-send">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
+
