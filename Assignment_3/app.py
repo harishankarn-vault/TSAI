@@ -33,10 +33,12 @@ conversation_context = {
 def analyze_file_with_gemini(file_path, file_type, filename):
     """Analyze uploaded file with Gemini AI and store context"""
     try:
+        print(f"Analyzing file: {filename}, type: {file_type}")  # Debug log
         file_size = os.path.getsize(file_path)
         
         if file_type.startswith('image/'):
             # For images, analyze the image
+            print("Processing image file...")  # Debug log
             image = Image.open(file_path)
             response = model.generate_content([
                 "Look at this image and give me a brief summary of what you see.",
@@ -45,9 +47,12 @@ def analyze_file_with_gemini(file_path, file_type, filename):
             analysis_text = response.text
         else:
             # For all other files, just give a simple summary based on file info
+            print("Processing text/binary file...")  # Debug log
             file_info = f"File: {filename}\nType: {file_type}\nSize: {file_size} bytes"
             response = model.generate_content(f"Give me a brief summary of what this file might contain based on its name and type:\n\n{file_info}")
             analysis_text = response.text
+        
+        print(f"Analysis complete: {analysis_text[:100]}...")  # Debug log
         
         # Store file context for chat
         file_context = {
@@ -61,6 +66,7 @@ def analyze_file_with_gemini(file_path, file_type, filename):
         return f"📁 File analyzed! Here's what I found:\n\n{analysis_text}"
         
     except Exception as e:
+        print(f"Error in file analysis: {str(e)}")  # Debug log
         return f"❌ File analysis failed: {str(e)}"
 
 
