@@ -18,7 +18,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Configure Gemini AI
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'AIzaSyCn0KUxjRyAohBrfVdYIjUWEhuPAWMCQpc')
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+if not GEMINI_API_KEY:
+    raise RuntimeError("❌ No GEMINI_API_KEY found. Add it to .env or environment variables.")
+
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
